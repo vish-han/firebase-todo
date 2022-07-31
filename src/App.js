@@ -7,6 +7,7 @@ import TODO from './Components/TODO';
 import{doc,updateDoc,deleteDoc,collection,query,onSnapshot,} from 'firebase/firestore'
 import {db} from './firebase'
 import DisplayTodo from './Components/DisplayTodo';
+import Loader from './Components/Loader';
 function App() {
   const [todos,setTodos] =useState([]);
   React.useEffect(() =>{
@@ -33,6 +34,7 @@ await updateDoc(doc(db,"todos",todo.id),{title:title})
  await deleteDoc(doc(db,"todos",id))
   }
   return (
+
     <div className="App">
    <div>
     <Title/>
@@ -52,6 +54,7 @@ await updateDoc(doc(db,"todos",todo.id),{title:title})
       
     ))}
    </div>
+
    <Footer/>
     </div>
   );
